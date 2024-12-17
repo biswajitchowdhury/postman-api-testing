@@ -37,12 +37,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://simple-books-api.glitch.me",
-							"protocol": "https",
+							"raw": "{{Base_URL}}",
 							"host": [
-								"simple-books-api",
-								"glitch",
-								"me"
+								"{{Base_URL}}"
 							]
 						}
 					},
@@ -55,7 +52,10 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"console.log(\"Pre-request script at Script level\");"
+									"console.log(\"Pre-request script at Script level\");\r",
+									"\r",
+									"pm.variables.set(\"endpoint\",\"books/\") //{{endpoint}}\r",
+									"//pm.variables.set(\"data\", 2) //{{data}}"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -76,16 +76,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://simple-books-api.glitch.me/books/2",
-							"protocol": "https",
+							"raw": "{{Base_URL}}/{{endpoint}}",
 							"host": [
-								"simple-books-api",
-								"glitch",
-								"me"
+								"{{Base_URL}}"
 							],
 							"path": [
-								"books",
-								"2"
+								"{{endpoint}}"
 							]
 						}
 					},
@@ -98,7 +94,11 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"console.log(\"Pre-request script at Script level\");"
+									"console.log(\"Pre-request script at Script level\");\r",
+									"\r",
+									"pm.variables.set(\"endpoint\",\"books\") //{{endpoint}}\r",
+									"pm.variables.set(\"query_Params_Fiction\", \"?type=fiction\") //{{data}}\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -119,21 +119,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://simple-books-api.glitch.me/books?type=fiction",
-							"protocol": "https",
+							"raw": "{{Base_URL}}/{{endpoint}}/{{query_Params_Fiction}}",
 							"host": [
-								"simple-books-api",
-								"glitch",
-								"me"
+								"{{Base_URL}}"
 							],
 							"path": [
-								"books"
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "fiction"
-								}
+								"{{endpoint}}",
+								"{{query_Params_Fiction}}"
 							]
 						}
 					},
@@ -146,7 +138,11 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"console.log(\"Pre-request script at Script level\");"
+									"console.log(\"Pre-request script at Script level\");\r",
+									"\r",
+									"pm.variables.set(\"endpoint\",\"books\") //{{endpoint}}\r",
+									"pm.variables.set(\"query_Params_Non_Fiction\", \"?type=non-fiction\") //{{data}}\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -167,21 +163,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://simple-books-api.glitch.me/books?type=non-fiction",
-							"protocol": "https",
+							"raw": "{{Base_URL}}/{{endpoint}}/{{query_Params_Non_Fiction}}",
 							"host": [
-								"simple-books-api",
-								"glitch",
-								"me"
+								"{{Base_URL}}"
 							],
 							"path": [
-								"books"
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "non-fiction"
-								}
+								"{{endpoint}}",
+								"{{query_Params_Non_Fiction}}"
 							]
 						}
 					},
@@ -194,7 +182,13 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"console.log(\"Pre-request script at Script level\");"
+									"console.log(\"Pre-request script at Script level\");\r",
+									"\r",
+									"pm.variables.set(\"endpoint\",\"books\") //{{endpoint}}\r",
+									"//pm.variables.set(\":bookid\", 1) //{{data}}\r",
+									"pm.variables.set(\":path_Params_bookedID\", 3) //{{data}}\r",
+									"\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -215,22 +209,57 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://simple-books-api.glitch.me/books/:bookid",
-							"protocol": "https",
+							"raw": "{{Base_URL}}/{{endpoint}}/{{:path_Params_bookedID}}",
 							"host": [
-								"simple-books-api",
-								"glitch",
-								"me"
+								"{{Base_URL}}"
 							],
 							"path": [
-								"books",
-								":bookid"
+								"{{endpoint}}",
+								"{{:path_Params_bookedID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetching Single book details with Query variable",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Pre-request script at Script level\");\r",
+									"\r",
+									"pm.variables.set(\"endpoint\",\"books\") //{{endpoint}}\r",
+									"//pm.variables.set(\"?bookid\", 5) //{{data}}\r",
+									"pm.variables.set(\"?query_Params_bookedID\", 2) //{{data}}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Test Script at Script level\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/{{endpoint}}/{{?query_Params_bookedID}}",
+							"host": [
+								"{{Base_URL}}"
 							],
-							"variable": [
-								{
-									"key": "bookid",
-									"value": "1"
-								}
+							"path": [
+								"{{endpoint}}",
+								"{{?query_Params_bookedID}}"
 							]
 						}
 					},
@@ -243,7 +272,10 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"console.log(\"Pre-request script at Script level\");"
+									"console.log(\"Pre-request script at Script level\");\r",
+									"\r",
+									"pm.variables.set(\"endpoint\",\"books\") //{{endpoint}}\r",
+									"pm.variables.set(\"bookid\", 1) //{{data}}"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -264,22 +296,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://simple-books-api.glitch.me/books/:bookid",
-							"protocol": "https",
+							"raw": "{{Base_URL}}/{{endpoint}}/{{bookid}}",
 							"host": [
-								"simple-books-api",
-								"glitch",
-								"me"
+								"{{Base_URL}}"
 							],
 							"path": [
-								"books",
-								":bookid"
-							],
-							"variable": [
-								{
-									"key": "bookid",
-									"value": "3"
-								}
+								"{{endpoint}}",
+								"{{bookid}}"
 							]
 						}
 					},
