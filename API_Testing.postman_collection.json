@@ -26,7 +26,20 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"console.log(\"Test Script at Script level\");"
+									"console.log(\"Test Script at Script level\");\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\",()=> {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// pm.test(\"Response time is less than 1000ms\",()=> {\r",
+									"//     pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"// });\r",
+									"\r",
+									"\r",
+									"\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -65,7 +78,12 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"console.log(\"Test Script at Script level\");"
+									"console.log(\"Test Script at Script level\");\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\",()=> {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -108,7 +126,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"console.log(\"Test Script at Script level\");"
+									"console.log(\"Test Script at Script level\");\r",
+									"\r",
+									"pm.test(\"Status code is 200\",()=> {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -152,7 +174,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"console.log(\"Test Script at Script level\");"
+									"console.log(\"Test Script at Script level\");\r",
+									"\r",
+									"pm.test(\"Status code is 200\",()=> {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -198,7 +224,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"console.log(\"Test Script at Script level\");"
+									"console.log(\"Test Script at Script level\");\r",
+									"\r",
+									"pm.test(\"Status code is 200\",()=> {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -242,7 +272,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"console.log(\"Test Script at Script level\");"
+									"console.log(\"Test Script at Script level\");\r",
+									"\r",
+									"pm.test(\"Status code is 200\",()=> {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -285,7 +319,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"console.log(\"Test Script at Script level\");"
+									"console.log(\"Test Script at Script level\");\r",
+									"\r",
+									"pm.test(\"Status code is 200\",()=> {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -353,6 +391,13 @@
 					"console.log(\"Test Script at Collection level\");"
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Base_URL",
+			"value": "https://simple-books-api.glitch.me",
+			"type": "string"
 		}
 	]
 }
